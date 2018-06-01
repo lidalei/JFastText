@@ -93,6 +93,13 @@ namespace FastTextWrapper {
         return std::vector<fasttext::real>(vec.data(), vec.data() + vec.size());
     }
 
+    std::vector<fasttext::real> FastTextApi::getSentenceVector(const std::string& text) {
+        fasttext::Vector vec(getDim());
+        std::istringstream textstream(text);
+        fastText.getSentenceVector(textstream, vec);
+        return std::vector<fasttext::real>(vec.data(), vec.data() + vec.size());
+    }
+
     std::vector<fasttext::real> FastTextApi::getVector(const std::string& word) {
         return getWordVector(word);
     }

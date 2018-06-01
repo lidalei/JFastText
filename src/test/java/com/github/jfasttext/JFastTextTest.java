@@ -155,4 +155,14 @@ public class JFastTextTest {
     System.out.println("Unloading model ...");
     jft.unloadModel();
   }
+
+  @Test
+  public void test11GetSentenceVector() throws Exception {
+    JFastText jft = new JFastText();
+    jft.loadModel("src/test/resources/models/supervised.model.bin");
+    String word =
+        "Soccer is the word in American English. Football is the word used across the world.";
+    List<Float> vec = jft.getSentenceVector(word);
+    System.out.printf("Sentence embedding vector of '%s': %s\n", word, vec);
+  }
 }
