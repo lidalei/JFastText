@@ -146,13 +146,13 @@ public class JFastText {
     return wordVec;
   }
 
-  public List<Float> getSentenceVector(String word) {
-    FastTextWrapper.RealVector rv = fta.getSentenceVector(word);
-    List<Float> wordVec = new ArrayList<>();
+  public List<Float> getSentenceVector(String sentence) {
+    FastTextWrapper.RealVector rv = fta.getSentenceVector(sentence);
+    List<Float> sentVec = new ArrayList<>();
     for (int i = 0; i < rv.size(); i++) {
-      wordVec.add(rv.get(i));
+      sentVec.add(rv.get(i));
     }
-    return wordVec;
+    return sentVec;
   }
 
   public List<Float> getSubwordVector(String subword) {
